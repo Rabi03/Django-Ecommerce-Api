@@ -14,8 +14,8 @@ from .permissions import IsAdminOrReadOnly
 
 from .pagination import DefaultPageNumberPagination
 from .filters import ProductFilterSet
-from .models import Cart, CartItem, Customer, OrderItem, Product,Collection, Review
-from .serializers import CartItemSerializer, CartSerializer, CollectionSerializer, CustomerSerializer, ProductSerializer, ReviewSerializer,AddCartItemSerializer, UpdateCartItemSerializer
+from .models import Cart, CartItem, Customer, Order, OrderItem, Product,Collection, Review
+from .serializers import CartItemSerializer, CartSerializer, CollectionSerializer, CustomerSerializer, OrderSerializer, ProductSerializer, ReviewSerializer,AddCartItemSerializer, UpdateCartItemSerializer
 
 # Create your views here.
 
@@ -94,3 +94,9 @@ class CustomerViewSet(ModelViewSet):
             serializer.save()
 
             return Response(serializer.data)
+
+
+
+class OrderViewSet(ModelViewSet):
+    queryset=Order.objects.prefetch_related('items__product').all()
+    serializer_class=OrderSerializer
