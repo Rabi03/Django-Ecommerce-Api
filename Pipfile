@@ -12,8 +12,19 @@ drf-nested-routers = "*"
 django-filter = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
+pillow = "*"
+django-cors-headers = "*"
+redis = "*"
+celery = "*"
+eventlet = "*"
+flower = "*"
+pytest = "*"
 
 [dev-packages]
+autopep8 = "*"
+pytest = "*"
+pytest-django = "*"
+model-bakery = "*"
 
 [requires]
 python_version = "3.9"
